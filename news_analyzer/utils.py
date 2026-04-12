@@ -29,3 +29,12 @@ def get_articles_by_sources(articles: list[dict], source: str) -> list[dict]:
             articles
         )
     )
+
+
+def get_reading_time(article: dict) -> dict:
+    """Calculate the estimated reading time for a news article.
+    Args:
+        article (dict): A news article containing a 'content' key with the article's text."""
+    minutes: int = len(article["content"])
+    article["reading_time"] = minutes // 200 + 1
+    return article
